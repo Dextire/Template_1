@@ -1,0 +1,706 @@
+/*Variables*/
+:root {
+    --main-color: #FF9800;
+}
+/*Start page*/
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+/*Start settings box*/
+.settings-box {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    background-color: rgba(255, 255, 255, 1);
+    width: 200px;
+    z-index: 1900;
+    min-height: 100vh;
+    transition: 0.3s;
+}
+.settings-box.open {
+    left: 0;
+}
+.settings-box .Spinning {
+    position: absolute;
+    right: -30px;
+    top: 100px;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+.settings-box .fa-gear {
+    padding: 8px 0;
+    width: 30px;
+}
+.settings-box .settings-container .option-box {
+    padding: 10px;
+    text-align: center;
+    background-color: #EEE;
+    margin: 10px;
+
+}
+.option-box h4 {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+.option-box .colors {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 10px 0 0;
+}
+.option-box .colors li {
+    width: 25px;
+    height: 25px;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+    display: inline-block;
+    border: 3px solid;
+    border-color: #EEE;
+}
+.colors li:first-child {
+    background-color: #FF9800;
+}
+.colors li:nth-child(2) {
+    background-color: #E91E63;
+}
+.colors li:nth-child(3) {
+    background-color: #009688;
+}
+.colors li:nth-child(4) {
+    background-color: #03A9F4;
+}
+.colors li:nth-child(5) {
+    background-color: #4CAF50;
+}
+.colors li.active {
+    opacity: 1;
+    border-color: white;
+}
+.option-box .yes,
+.option-box .no {
+    width: 50px;
+    background-color: var(--main-color);
+    color: white;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 12px;
+    padding: 4px 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.option-box span.active {
+    opacity: 1;
+}
+/*End settings box*/
+/*Start landing*/
+.landing-page .container {
+    position: relative;
+    z-index: 1000;
+}
+.landing-page {
+    min-height: 100vh;
+    background-image: url("../imgs/01.jpg");
+    background-size: cover;
+    position: relative;
+    transition: 1s;
+}
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.header {
+    position: relative;
+    z-index: 2;
+    color: white;
+    display: flex;
+    padding: 10px;
+}
+.logo {
+    width: 150px;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--main-color);
+    border: 3px solid var(--main-color);
+}
+.header .links-container {
+    width: 100%;
+    text-align: right;
+}
+.header ul {
+    list-style: none;
+    padding-left: 0px;
+}
+.header ul li {
+    display: inline-block;
+    margin-left: 10px;
+}
+.header ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.header ul li a:hover,
+.header ul li a.active {
+    color: var(--main-color);
+    }
+.header .toggle-menu {
+    background: none;
+    border: none;
+    width: 40px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: none;
+    position: relative;
+}
+.header .toggle-menu.menu-active:before {
+    content: '';
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    position: absolute;
+    bottom: -15px;
+    left: 10px;
+}
+.header .toggle-menu span {
+    display: block;
+    background-color: white;
+    height: 4px;
+    margin-bottom: 4px;
+}
+.toggle-menu:focus {
+    outline: none;
+}
+.intro {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    text-align: center;
+    width: 95%;
+}
+.intro h1 {
+    font-size: 35px;
+    margin: 0 0 15px;
+}
+.intro h1 span {
+    color: var(--main-color);
+}
+.intro p {
+    line-height: 1.6;
+    font-size: 20px;
+    margin: 0;
+}
+.intro p span {
+    color: var(--main-color);
+}
+@media (max-width: 575px) {
+    .intro h1 {
+        font-size: 26px;
+    }
+}
+@media (max-width: 991px) {
+    .header ul {
+        display: none;
+    }
+    .header .links.open {
+        background-color: white;
+        padding: 10px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        border-radius: 4px;
+        text-align: left;
+    }
+    .header .links li a {
+        color: var(--main-color);
+        font-weight: bold;
+    }
+    .header .links li {
+        display: block;
+        margin: 10px;
+
+    }
+    .header .toggle-menu {
+        display: inline-block;
+    }
+}
+/*End landing*/
+/*Start about*/
+.about-us {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+.about-us .info-box {
+    flex: 1;
+    padding: 30px;
+}
+.about-us .info-box h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 10px;
+}
+.about-us .info-box p {
+    line-height: 1.8;
+    color: #767676;
+    margin: 0;
+}
+.about-us .info-box p span {
+    color: var(--main-color);
+}
+.about-us .img-box {
+    flex: 1;
+    text-align: center;
+}
+.about-us .img-box img {
+    width: 250px;
+}
+@media(max-width: 767px) {
+    .about-us {
+        display: block;
+        text-align: center;
+    }
+    .about-us .info-box {
+        padding: 0;
+    }
+}
+/*End about*/
+/*Start skills*/
+.skills {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #EEE;
+}
+.skills h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 50px;
+    text-align: center;
+}
+.skills .skill-box {
+    background-color: white;
+    display: flex;
+    padding: 15px;
+    margin-bottom: 15px;
+
+}
+.skill-box .skill-name {
+    font-weight: bold;
+    width: 140px;
+    text-align: center;
+    line-height: 30px;
+}
+.skill-box .skill-progress {
+    height: 30px;
+    width: calc(100% - 110px);
+    background-color: #f6f6f6;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+.skill-progress span {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: var(--main-color);
+    left: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+@media(max-width: 767px) {
+    .skills .skill-box {
+        display: block;
+    }
+    .skill-box .skill-name {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .skill-box .skill-progress {
+        width: 100%;
+    }
+}
+/*End skills*/
+/*Start gallery*/
+.gallery {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.gallery h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 50px;
+    text-align: center;
+}
+.gallery .img-box {
+    text-align: center;
+}
+.gallery img {
+    width: 200px;
+    padding: 3px;
+    background-color: #f6f6f6;
+    border: 1px solid #CCC;
+    margin: 5px;
+    cursor: pointer;
+}
+.popup-overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+}
+.popup-box {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #CCC;
+    padding: 20px;
+    z-index: 2001;
+}
+.popup-box img {
+    max-width: 100%;
+}
+.popup-box span {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    background-color: var(--main-color);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 50%;
+}
+/*End gallery*/
+/*Start timeline*/
+.timeline {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #EEE;
+}
+.timeline .timeline-content {
+    position: relative;
+    overflow: hidden;
+}
+.timeline .timeline-content:before {
+    content:'';
+    width: 2px;
+    height: 100%;
+    background-color: var(--main-color);
+    position: absolute;
+    left: 50%;
+    margin-left: -1px;
+    top: 0;
+}
+.timeline-content .month {
+    margin: 20px auto;
+    width: 50px;
+    background-color: var(--main-color);
+    position: relative;
+    z-index: 2;
+    border-radius: 4px;
+    text-align: center;
+    color: white;
+    padding: 2px 5px;
+    font-weight: bold;
+}
+.timeline-content .left,
+.timeline-content .right {
+    width: calc(50% - 25px);
+    margin-bottom: 40px;
+    position: relative;
+}
+.timeline-content .left {
+    float: left;
+}
+.timeline-content .left:before {
+    right: -35px;
+}
+.timeline-content .right {
+    float: right;
+}
+.timeline-content .right:before {
+    left: -35px;
+}
+.timeline-content .left:before,
+.timeline-content .right:before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border: 3px solid var(--main-color);
+    position: absolute;
+    border-radius: 50%;
+    top: 20px;
+}
+.timeline-content .content {
+    padding: 20px;
+    background-color: white;
+}
+.timeline-content .content h3 {
+    font-weight: bold;
+    color: var(--main-color);
+    margin: 0 0 10px;
+}
+.timeline-content .content p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+.left .content:before {
+    content: '';
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent transparent transparent white;
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: -20px;
+    top: 20px;
+}
+.right .content:before {
+    content: '';
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent white transparent transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: -20px;
+    top: 20px;
+}
+.clearfix {
+    clear: both;
+}
+/*End timeline*/
+/*Start features*/
+.features {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.features h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 60px;
+    text-align: center;
+}
+.feat-box img {
+    width: 150px;
+    height: 80px;
+
+}
+.feat-box img.wix-blazor {
+    width: 80px;
+}
+.features .feat-box {
+    width: calc(100% / 2);
+    float: left;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.features h4 {
+    font-size: 22px;
+    margin: 15px 0 40px;
+    position: relative;
+}
+.features h4:before {
+    content: '';
+    width: 40px;
+    height: 4px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    bottom: -22px;
+}
+.features p {
+    width: 80%;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: #777
+}
+/*End features*/
+/*Start contact*/
+.contact {
+    max-height: 600px;
+    background-image: url('../imgs/Contact.jpg');
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+}
+.contact .container {
+    position: relative;
+    z-index: 2;
+}
+.contact h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 60px;
+    text-align: center;
+}
+.contact form {
+    overflow: hidden;
+    max-width: 800px;
+    margin: auto;
+}
+.contact form .left {
+    float: left;
+    width: 49%;
+}
+.contact form .right {
+    float: right;
+    width: 49%;
+}
+.contact form input:not([type = "submit"]),
+.contact form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    background-color: rgba(218, 218, 218, 0.19);
+}
+.contact form input:not([type = "submit"]):focus,
+.contact form textarea:focus {
+    outline: 1px solid var(--main-color);
+}
+.contact form input:not([type = "submit"]):focus::-webkit-input-placeholder,
+.contact form textarea:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: 0.3s;
+}
+.contact form input:not([type = "submit"]):focus::-moz-placeholder,
+.contact form textarea:focus::-moz-placeholder {
+    opacity: 0;
+    transition: 0.3s;
+}
+.contact form input {
+    height: 40px;
+}
+.contact form textarea {
+    height: 150px;
+}
+.contact form input[type="submit"] {
+    padding: 10px;
+    width: 100%;
+    border-color: transparent;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+}
+@media(max-width: 767px){
+    .contact form .left,
+    .contact form .right {
+        float: none;
+        width: 100%;
+    }
+}
+/*End contact*/
+/*Start grid system*/
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+/*End grid system*/
+/*Start footer*/
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.footer span {
+    color: var(--main-color);
+}
+/*End footer*/
+/*Up arrow*/
+.up {
+    display: block;
+    position: fixed;
+    background-color: var(--main-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1800;
+    cursor: pointer;
+}
+
+.up:before {
+    content: '';
+    display: block;
+    border: 15px solid;
+    border-color: transparent transparent black transparent;
+    width: 0;
+    height: 0;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+.up:after {
+    content: '';
+    display: block;
+    border: 15px solid;
+    border-color: transparent transparent var(--main-color) transparent;
+    width: 0;
+    height: 0;
+    margin-left: 10px;
+    margin-top: -29px;
+}
